@@ -70,18 +70,60 @@ An app to find reviews for local coffee shops and submit reviews based on your e
    * Review summary stream screen
 
 ## Wireframes
-[Add picture of your hand sketched wireframes in this section]
-<img src="YOUR_WIREFRAME_IMAGE_URL" width=600>
-
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
+<img src="https://github.com/Codepath-Pod15/CoffeePod/blob/main/wireframe.png" width=600>
 
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+
+#### User
+
+   | Property       | Type            | Description |
+   | -------------- | --------------- | ----------- |
+   | objectId       | String          | unique id for the user (default field) |
+   | username       | String          | username for the user |
+   | password       | String          | password for the user |
+   | name           | String          | users first and last name |
+   | profilePicture | File            | profilePicture for the user (optional) |
+   | location       | Number          | zip code for the user (optional) |
+   | createdAt      | DateTime        | date when post is created (default field) |
+   | updatedAt      | DateTime        | date when post is last updated (default field)
+
+#### Location
+
+   | Property      | Type            | Description  |
+   | ------------- | --------------- | ------------ |
+   | objectId      | String          | unique id for the review (default field) |
+   | address       | String          | location address |
+   | createdAt     | DateTime        | date when review is created (default field) |
+   | updatedAt     | DateTime        | date when review is last updated (default field) |
+
+#### Review
+
+   | Property      | Type                | Description  |
+   | ------------- | ------------------- | ------------ |
+   | objectId      | String              | unique id for the review (default field) |
+   | user          | Pointer to User     | review author |
+   | location      | Pointer to Location | lcoation being reviewed |
+   | image         | File                | image that user uploads with review |
+   | order         | String              | what was ordered during the visit |
+   | reviewText    | String              | review text posted by the user |
+   | rating        | Number              | review rating out of 5 stars |
+   | tags          | Array               | tags for the location (vibe, cost, etc) |
+   | createdAt     | DateTime            | date when review is created (default field) |
+   | updatedAt     | DateTime            | date when review is last updated (default field) |
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+   - Login/Register screen
+      - (Create/POST) Register a new user
+      - (Read/GET) Authenticate user login
+   - Review stream screen
+      - (Read/GET) Query all locations by zip code
+      - (Read/GET) Query review data by location
+   - Review detail screen
+      - (Read/GET) Query all reviews by location
+   - Review creation Screen
+      - (Create/POST) Create a new review object
+   - Settings Screen
+      - (Read/GET) Query logged in user object
+      - (Update/PUT) Update user profile picture and location
