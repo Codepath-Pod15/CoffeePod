@@ -12,8 +12,10 @@ import com.example.coffeepod.fragments.ComposeFragment
 import com.example.coffeepod.fragments.FeedFragment
 import com.example.coffeepod.fragments.ProfileFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.parse.ParseUser
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -57,7 +59,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_logout) {
-            Log.i("Main", "Logout")
+            ParseUser.logOut()
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
         return super.onOptionsItemSelected(item)
     }
