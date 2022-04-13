@@ -1,13 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#c18c64"
     tools:context=".fragments.ProfileFragment">
 
     <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Profile Fragment" />
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="#UserName"
+        android:textSize="40sp"
+        android:textAlignment="center"
+        android:background="@drawable/rounded_corner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
 
-</FrameLayout>
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_marginTop="80dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/coffeepodlogo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Current Zipcode"
+        android:textSize="20sp"
+        android:layout_margin="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/btnUpdateAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Update Address"
+        android:backgroundTint="#c18c64"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLocation" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
