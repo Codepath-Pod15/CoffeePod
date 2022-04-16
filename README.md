@@ -12,7 +12,7 @@ An app to find reviews for local coffee shops and submit reviews based on your e
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of Sprint 1 implemented user stories:
 
 <img src='CoffeePod Week1 Progress.gif' />
 
