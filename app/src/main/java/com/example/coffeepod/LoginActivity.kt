@@ -32,7 +32,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun signUpUser(username:String, password: String) {
-        val user = ParseUser()
+        val user = User()
 
         user.setUsername(username)
         user.setPassword(password)

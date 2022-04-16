@@ -2,10 +2,16 @@ package com.example.coffeepod
 
 import android.app.Application
 import com.parse.Parse
+import com.parse.ParseObject
 
 class CoffeePodApplication  : Application() {
     override fun onCreate() {
         super.onCreate()
+
+        ParseObject.registerSubclass(Review::class.java)
+        ParseObject.registerSubclass(Location::class.java)
+        ParseObject.registerSubclass(User::class.java)
+
         Parse.initialize(
             Parse.Configuration.Builder(this)
                 .applicationId(getString(R.string.back4app_app_id))
