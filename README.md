@@ -17,7 +17,6 @@ Here's a walkthrough of Sprint 1 implemented user stories:
 <img src='CoffeePod Week1 Progress.gif' />
 
 ### App Evaluation
-[Evaluation of your app across the following attributes]
 - **Category:** Lifestyle
 - **Mobile:** This app would be primarily developed for mobile as it is aimed for use at any point in the day, where someone may not have quick access to a desktop or laptop. The camera will also be used to allow the user to upload photos of the location they visit.
 - **Story:** This app will allow people to streamline their coffee purchase experience by seeing review information provided by others, and contribute reviews based on the experiences they have.
@@ -31,17 +30,17 @@ Here's a walkthrough of Sprint 1 implemented user stories:
 
 **Required Must-have Stories**
 
-* User is able to login, signup, and logout of the app. The user login is persisted with app restarts.
-* User can set up a personal profile with a home location.
-* User can see a quick summary of photo, address, rating, pricing, tags, and popular items.
-* User can see detailed information about a coffee location when they click on its summary.
-* User can submit reviews with information about their visit to a location (what they ordered, rating, tags, location photo, etc).
+[x] User is able to login, signup, and logout of the app. The user login is persisted with app restarts.
+[] User can set up a personal profile with a home location.
+[] User can see a quick summary of photo, address, rating, pricing, tags, and popular items.
+[] User can see detailed information about a coffee location when they click on its summary.
+[] User can submit reviews with information about their visit to a location (what they ordered, rating, tags, location photo, etc).
 
 **Optional Nice-to-have Stories**
 
-* User can navigate on a map to see pinpoints for coffee locations.
-* User can share coffee locations with others.
-* User can see foot traffic and busy times for coffee locations.
+[] User can navigate on a map to see pinpoints for coffee locations.
+[] User can share coffee locations with others.
+[] User can see foot traffic and busy times for coffee locations.
 
 ### 2. Screen Archetypes
 
