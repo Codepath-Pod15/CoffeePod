@@ -10,6 +10,12 @@
 ### Description
 An app to find reviews for local coffee shops and submit reviews based on your experiences at a location.
 
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='CoffeePod Week1 Progress.gif' />
+
 ### App Evaluation
 [Evaluation of your app across the following attributes]
 - **Category:** Lifestyle
