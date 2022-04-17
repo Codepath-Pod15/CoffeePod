@@ -11,6 +11,7 @@ class CoffeePodApplication  : Application() {
         ParseObject.registerSubclass(Review::class.java)
         ParseObject.registerSubclass(Location::class.java)
         ParseObject.registerSubclass(User::class.java)
+        ParseObject.registerSubclass(Tag::class.java)
 
         Parse.initialize(
             Parse.Configuration.Builder(this)

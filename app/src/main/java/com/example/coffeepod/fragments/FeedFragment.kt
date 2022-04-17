@@ -32,6 +32,7 @@ class FeedFragment : Fragment() {
 
         query.include(Review.KEY_USER)
         query.include(Review.KEY_LOCATION)
+        query.include(Review.KEY_TAGS)
         query.addDescendingOrder("createdAt")
         query.findInBackground(object : FindCallback<Review> {
             override fun done(reviews: MutableList<Review>?, e: ParseException?) {
@@ -40,6 +41,7 @@ class FeedFragment : Fragment() {
                 } else {
                     if (reviews != null) {
                         for (review in reviews) {
+                            val tags = review.getTags()
                             Log.i("QueryReviews", "Post by: " + review.getUser()?.getUsername() + " for " + review.getLocation()?.getAddress())
                         }
                     }

@@ -1,5 +1,6 @@
 package com.example.coffeepod
 
+import android.util.Log
 import com.parse.*
 import org.json.JSONArray
 
@@ -30,12 +31,18 @@ class Review : ParseObject() {
         put(KEY_LOCATION, location)
     }
 
-    fun getTags(): JSONArray? {
-        return getJSONArray(KEY_TAGS)
+    fun getTags(): MutableList<Tag>? {
+        val relation = getRelation<Tag>(KEY_TAGS)
+        val query: ParseQuery<Tag> = relation.getQuery()
+        return query.find()
     }
 
-    fun setTags(tags: JSONArray) {
-        put(KEY_TAGS, tags)
+    fun setTags(tags : MutableList<Tag>) {
+        val relation : ParseRelation<Tag> = this.getRelation(KEY_TAGS)
+        for (tag in tags) {
+            relation.add(tag)
+        }
+        saveInBackground()
     }
 
     fun getRating(): Int? {
