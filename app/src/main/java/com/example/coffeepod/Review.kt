@@ -37,6 +37,17 @@ class Review : ParseObject() {
         return query.find()
     }
 
+    fun getTagsName(): MutableList<String> {
+        val results = mutableListOf<String>()
+        val relation = getRelation<Tag>(KEY_TAGS)
+        val query: ParseQuery<Tag> = relation.getQuery()
+        val tags = query.find()
+        for (item in tags) {
+            results.add(item.getName().toString())
+        }
+        return results
+    }
+
     fun setTags(tags : MutableList<Tag>) {
         val relation : ParseRelation<Tag> = this.getRelation(KEY_TAGS)
         for (tag in tags) {
