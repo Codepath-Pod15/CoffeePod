@@ -28,6 +28,7 @@
         android:isIndicator="true"
         android:rating="4.5"
         android:stepSize="0.5"
+        android:progressTint="#A67A5B"
         />
 
     <TextView
@@ -59,7 +60,7 @@
         android:layout_width="match_parent"
         android:layout_height="360dp"
         android:layout_marginTop="8dp"
-        android:background="#d5b895" />
+        android:background="#C19770" />
 
 
 </LinearLayout>

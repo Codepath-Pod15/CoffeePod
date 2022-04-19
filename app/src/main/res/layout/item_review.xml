@@ -58,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:rating="4.5"
-        android:progressTint="#d5b895"
+        android:progressTint="#A67A5B"
         style="?android:attr/ratingBarStyleIndicator"
         app:layout_constraintStart_toEndOf="@+id/ivUserPhoto"
         app:layout_constraintTop_toBottomOf="@+id/tvReview" />
