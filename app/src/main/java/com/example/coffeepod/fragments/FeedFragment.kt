@@ -51,10 +51,10 @@ class FeedFragment : Fragment() {
                     Log.e("QueryReviews", "Error fetching posts")
                 } else {
                     if (reviews != null) {
-                        for (review in reviews) {
-                            val tags = review.getTags()
-                            Log.i("QueryReviews", "Post by: " + review.getUser()?.getUsername() + " for " + review.getLocation()?.getAddress() + " Tags " + review.getTagsName())
-                        }
+//                        for (review in reviews) {
+//                            val tags = review.getTags()
+//                            Log.i("QueryReviews", "Post by: " + review.getUser()?.getUsername() + " for " + review.getLocation()?.getAddress() + " Tags " + review.getTagsName())
+//                        }
 
                         allReviews.addAll(reviews)
                         adapter.notifyDataSetChanged()
