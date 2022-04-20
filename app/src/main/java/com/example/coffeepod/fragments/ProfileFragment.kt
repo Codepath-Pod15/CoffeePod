@@ -1,6 +1,5 @@
 package com.example.coffeepod.fragments
 
-import android.Manifest
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
@@ -65,7 +64,11 @@ class ProfileFragment : Fragment() {
         val user : User = ParseUser.getCurrentUser() as User
 
         photoFile = user.getProfilePicture()
-        Glide.with(view.context).load(photoFile?.url).into(ivProfile)
+        if (photoFile == null) {
+            Glide.with(view.context).load(R.drawable.coffeepodlogo).into(ivProfile)
+        } else {
+            Glide.with(view.context).load(photoFile?.url).into(ivProfile)
+        }
 
         tvUsername.setText("#" + user.username)
         etName.setText(user.getName())
