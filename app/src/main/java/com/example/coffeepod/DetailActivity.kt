@@ -1,11 +1,13 @@
 package com.example.coffeepod
 
+import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.parse.FindCallback
 import com.parse.ParseException
@@ -24,6 +26,7 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
         val review = intent.getParcelableExtra<Review>("Review_Extra")
+        supportActionBar?.setBackgroundDrawable(ColorDrawable(ContextCompat.getColor(this, R.color.backgroundColor)))
 
         // Gets Layout data
         rbVoteAverage = findViewById(R.id.rbVoteAverage)

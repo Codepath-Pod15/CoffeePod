@@ -7,12 +7,24 @@
     android:background="#FAF0DC"
     android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rounded_corner"
+        android:text="Name"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textSize="30sp" />
 
     <ImageView
         android:id="@+id/ivPhotos"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="15dp"
         android:layout_gravity="center_horizontal"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -30,18 +42,6 @@
         android:stepSize="0.5"
         android:progressTint="#A67A5B"
         />
-
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginTop="20dp"
-        android:textSize="20sp"
-        android:textAlignment="center"
-        android:background="@drawable/rounded_corner"
-        android:text="Name" />
 
     <TextView
         android:id="@+id/tvAddress"
