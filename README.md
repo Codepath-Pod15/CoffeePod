@@ -31,10 +31,10 @@ Here's a walkthrough of Sprint 1 implemented user stories:
 **Required Must-have Stories**
 
 - [x] User is able to login, signup, and logout of the app. The user login is persisted with app restarts.
-- [ ] User can set up a personal profile with a home location.
+- [x] User can set up a personal profile with a home location.
 - [ ] User can see a quick summary of photo, address, rating, pricing, tags, and popular items.
 - [ ] User can see detailed information about a coffee location when they click on its summary.
-- [ ] User can submit reviews with information about their visit to a location (what they ordered, rating, tags, location photo, etc).
+- [x] User can submit reviews with information about their visit to a location (what they ordered, rating, tags, location photo, etc).
 
 **Optional Nice-to-have Stories**
 
