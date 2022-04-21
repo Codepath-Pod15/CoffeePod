@@ -1,10 +1,12 @@
 package com.example.coffeepod
 
+import android.os.Parcelable
 import com.parse.ParseClassName
 import com.parse.ParseFile
 import com.parse.ParseUser
+import kotlinx.parcelize.Parcelize
 
-@ParseClassName("_User")
+@Parcelize
 class User : ParseUser() {
 
     fun getProfilePicture(): ParseFile? {
@@ -30,6 +32,7 @@ class User : ParseUser() {
     fun setName(name: String) {
         put(KEY_NAME, name)
     }
+
 
     companion object {
         const val KEY_PROFILEPICTURE = "profilePicture"

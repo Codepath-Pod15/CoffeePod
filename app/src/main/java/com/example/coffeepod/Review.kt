@@ -37,6 +37,8 @@ class Review : ParseObject() {
         query.findInBackground(callback)
     }
 
+
+
     fun setTags(tags : MutableList<Tag>) {
         val relation : ParseRelation<Tag> = this.getRelation(KEY_TAGS)
         for (tag in tags) {

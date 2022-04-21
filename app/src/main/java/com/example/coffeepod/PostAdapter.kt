@@ -1,6 +1,7 @@
 package com.example.coffeepod
 
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.parse.FindCallback
@@ -15,7 +17,7 @@ import com.parse.ParseException
 
 class PostAdapter (val context: Context, val reviews: List<Review>):RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
-    class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
         val shopImage: ImageView
         val shopName: TextView
         val shopRating: RatingBar
@@ -26,6 +28,7 @@ class PostAdapter (val context: Context, val reviews: List<Review>):RecyclerView
             shopName = itemView.findViewById(R.id.shopName)
             shopTags = itemView.findViewById(R.id.shopTags)
             shopRating = itemView.findViewById(R.id.shopRating)
+            itemView.setOnClickListener(this)
         }
 
         fun bind(review: Review) {
@@ -49,6 +52,16 @@ class PostAdapter (val context: Context, val reviews: List<Review>):RecyclerView
             })
 
             Glide.with(itemView.context).load(review.getImage()?.url).into(shopImage)
+        }
+
+        override fun onClick(v: View?) {
+            // Get which shop was clicked
+            val review = reviews[adapterPosition]
+            // Navigation to detail pages
+            // Toast.makeText(context, review.getLocation()?.getName(), Toast.LENGTH_SHORT).show()
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("Review_Extra", review)
+            context.startActivity(intent)
         }
     }
 
