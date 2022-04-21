@@ -1,6 +1,7 @@
 package com.example.coffeepod
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,8 @@ import android.widget.RatingBar
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.parse.FindCallback
+import com.parse.ParseException
 
 class PostAdapter (val context: Context, val reviews: List<Review>):RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
@@ -28,9 +31,22 @@ class PostAdapter (val context: Context, val reviews: List<Review>):RecyclerView
         fun bind(review: Review) {
             shopName.text = review.getLocation()?.getName()
             shopRating.rating = review.getRating()?.toFloat()!!
-            shopTags.text = review.getTagsName()?.joinToString(", ")
 
-            // Image View Set up
+            val results = mutableListOf<String>()
+            review.getTags(object : FindCallback<Tag> {
+                override fun done(tags: MutableList<Tag>?, e: ParseException?) {
+                    if (e != null) {
+                        Log.e("QueryReviews", "Error fetching posts")
+                    } else {
+                        if (tags != null) {
+                            for (item in tags) {
+                                results.add(item.getName().toString())
+                            }
+                            shopTags.text = results.joinToString(", ")
+                        }
+                    }
+                }
+            })
 
             Glide.with(itemView.context).load(review.getImage()?.url).into(shopImage)
         }

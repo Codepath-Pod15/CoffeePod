@@ -31,21 +31,10 @@ class Review : ParseObject() {
         put(KEY_LOCATION, location)
     }
 
-    fun getTags(): MutableList<Tag>? {
+    fun getTags(callback : FindCallback<Tag>) {
         val relation = getRelation<Tag>(KEY_TAGS)
-        val query: ParseQuery<Tag> = relation.getQuery()
-        return query.find()
-    }
-
-    fun getTagsName(): MutableList<String> {
-        val results = mutableListOf<String>()
-        val relation = getRelation<Tag>(KEY_TAGS)
-        val query: ParseQuery<Tag> = relation.getQuery()
-        val tags = query.find()
-        for (item in tags) {
-            results.add(item.getName().toString())
-        }
-        return results
+        val query: ParseQuery<Tag> = relation.query
+        query.findInBackground(callback)
     }
 
     fun setTags(tags : MutableList<Tag>) {
