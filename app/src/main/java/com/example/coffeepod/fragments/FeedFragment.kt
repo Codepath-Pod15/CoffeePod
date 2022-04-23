@@ -1,3 +1,4 @@
+
 package com.example.coffeepod.fragments
 
 import android.os.Bundle
@@ -52,10 +53,8 @@ class FeedFragment : Fragment() {
                 } else {
                     if (reviews != null) {
 //                        for (review in reviews) {
-//                            val tags = review.getTags()
-//                            Log.i("QueryReviews", "Post by: " + review.getUser()?.getUsername() + " for " + review.getLocation()?.getAddress() + " Tags " + review.getTagsName())
+//                            Log.i("QueryReviews", "Post by: " + review.getUser()?.getUsername() + " for " + review.getLocation()?.getAddress() + " Review " + review.getReviewText())
 //                        }
-
                         allReviews.addAll(reviews)
                         adapter.notifyDataSetChanged()
                     }
@@ -63,5 +62,4 @@ class FeedFragment : Fragment() {
             }
         })
     }
-
 }

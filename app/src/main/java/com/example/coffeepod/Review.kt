@@ -38,7 +38,6 @@ class Review : ParseObject() {
     }
 
 
-
     fun setTags(tags : MutableList<Tag>) {
         val relation : ParseRelation<Tag> = this.getRelation(KEY_TAGS)
         for (tag in tags) {
@@ -69,6 +68,10 @@ class Review : ParseObject() {
 
     fun setImage(imgFile: ParseFile) {
         put(KEY_IMAGE, imgFile)
+    }
+
+    fun getTags() {
+        TODO("Not yet implemented")
     }
 
     companion object {
