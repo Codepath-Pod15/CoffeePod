@@ -14,7 +14,7 @@ An app to find reviews for local coffee shops and submit reviews based on your e
 
 Here's a walkthrough of Sprint 1 implemented user stories:
 
-<img src='CoffeePod Week1 Progress.gif' />
+<img src='CoffeePod Week2 Progress.gif' />
 
 ### App Evaluation
 - **Category:** Lifestyle
