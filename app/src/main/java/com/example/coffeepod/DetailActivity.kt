@@ -79,7 +79,6 @@ class DetailActivity : AppCompatActivity() {
     fun queryReviews(locationID: Location?, reviewArray: MutableList<String>) {
         // Class
         val query: ParseQuery<Review> = ParseQuery.getQuery(Review::class.java)
-        val allReviews = mutableListOf<String>()
         // Reviews
         query.whereEqualTo("location", locationID)
         query.findInBackground(object : FindCallback<Review> {
