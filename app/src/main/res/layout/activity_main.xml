@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FAF0DC"
+    android:background="@drawable/pod_background"
     tools:context=".MainActivity">
 
     <FrameLayout
@@ -20,7 +20,9 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#C19770"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:menu="@menu/menu_bottom_navigation" />
+        app:menu="@menu/menu_bottom_navigation"
+        app:itemIconTint="#FAF0DC" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

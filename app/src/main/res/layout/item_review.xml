@@ -16,14 +16,14 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:scaleType="centerCrop"
-        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/coffeepodlogo" />
 
     <TextView
         android:id="@+id/tvReview"
-        android:layout_width="wrap_content"
+        android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:text="This is an example Review"
@@ -38,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:progressTint="#A67A5B"
+        android:secondaryProgressTint="#FAF0DC"
         android:rating="4.5"
         app:layout_constraintStart_toEndOf="@+id/ivUserPhoto"
         app:layout_constraintTop_toTopOf="parent" />

@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#FAF0DC"
+    android:background= "@drawable/pod_background"
     android:orientation="vertical">
 
     <TextView
@@ -22,8 +22,8 @@
 
     <ImageView
         android:id="@+id/ivPhotos"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_marginTop="15dp"
         android:layout_gravity="center_horizontal"
         tools:srcCompat="@tools:sample/avatars" />
@@ -41,7 +41,7 @@
         android:rating="4.5"
         android:stepSize="0.5"
         android:progressTint="#A67A5B"
-        />
+        android:secondaryProgressTint="#FAF0DC"/>
 
     <TextView
         android:id="@+id/tvAddress"
@@ -70,9 +70,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvReviews"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_marginTop="8dp"
-        android:background="#C19770" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp" />
 
 
 </LinearLayout>
