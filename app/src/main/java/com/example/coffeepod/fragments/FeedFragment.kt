@@ -3,10 +3,10 @@ package com.example.coffeepod.fragments
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.coffeepod.PostAdapter
@@ -51,11 +51,14 @@ class FeedFragment : Fragment() {
                 if (e != null) {
                     Log.e("QueryReviews", "Error fetching posts")
                 } else {
+                    val temp = mutableListOf<String>()
                     if (reviews != null) {
-//                        for (review in reviews) {
-//                            Log.i("QueryReviews", "Post by: " + review.getUser()?.getUsername() + " for " + review.getLocation()?.getAddress() + " Review " + review.getReviewText())
-//                        }
-                        allReviews.addAll(reviews)
+                        for (review in reviews) {
+                            if (review.getLocation()?.getName() !in temp) {
+                                allReviews.add(review)
+                                temp.add(review.getLocation()?.getName().toString())
+                            }
+                        }
                         adapter.notifyDataSetChanged()
                     }
                 }
