@@ -104,6 +104,7 @@ class ComposeFragment : Fragment() {
     fun populateLocations(view : View) {
         val query: ParseQuery<Location> = ParseQuery.getQuery(Location::class.java)
         query.addAscendingOrder("name")
+
         query.findInBackground(object : FindCallback<Location> {
             override fun done(locations: MutableList<Location>?, e: ParseException?) {
                 if (e != null) {

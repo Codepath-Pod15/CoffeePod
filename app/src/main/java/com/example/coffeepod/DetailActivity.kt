@@ -25,7 +25,7 @@ class DetailActivity : AppCompatActivity() {
     private lateinit var tvName: TextView
     private lateinit var ivPhotos: ImageView
     private lateinit var adapter: ReviewAdapter
-    var reviewArray: MutableList<String> = mutableListOf()
+    var reviewArray: MutableList<Review> = mutableListOf()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,16 +42,16 @@ class DetailActivity : AppCompatActivity() {
         ivPhotos = findViewById(R.id.ivPhotos)
         val results = mutableListOf<String>()
 
-        // Testing Line
-        var locationID = review?.getLocation()
-        queryReviews(locationID, reviewArray)
 
         /// Adapter Set up
-        val rvReviews = findViewById<View>(R.id.rvReviews) as RecyclerView
-        val adapter = ReviewAdapter(this, reviewArray)
+        var rvReviews = findViewById<View>(R.id.rvReviews) as RecyclerView
+        adapter = ReviewAdapter(this, reviewArray)
         rvReviews.adapter = adapter
         rvReviews.layoutManager = LinearLayoutManager(this)
 
+        // Testing Line
+        var locationID = review?.getLocation()
+        queryReviews(locationID, reviewArray)
 
 
         // Update Layout data
@@ -72,13 +72,16 @@ class DetailActivity : AppCompatActivity() {
                 }
             }
         })
+
         Glide.with(this).load(review.getImage()?.url).into(ivPhotos)
         }
 
 
-    fun queryReviews(locationID: Location?, reviewArray: MutableList<String>) {
+    open fun queryReviews(locationID: Location?, reviewArray: MutableList<Review>) {
         // Class
         val query: ParseQuery<Review> = ParseQuery.getQuery(Review::class.java)
+
+
         // Reviews
         query.whereEqualTo("location", locationID)
         query.findInBackground(object : FindCallback<Review> {
@@ -87,14 +90,9 @@ class DetailActivity : AppCompatActivity() {
                     Log.e("QueryReviews", "Error fetching posts")
                 } else {
                     if (reviews != null) {
-                        for (review in reviews) {
-                            val temp = review.getReviewText().toString()
-                            Log.i("QueryReviews", temp)
-                            reviewArray.add(temp)
-                        }
-
+                        reviewArray.addAll(reviews)
+                        adapter.notifyDataSetChanged()
                     }
-
                 }
             }
         })
