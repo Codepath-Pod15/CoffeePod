@@ -1,5 +1,6 @@
 package com.example.coffeepod.fragments
 
+import android.Manifest
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.ImageDecoder
@@ -18,9 +19,12 @@ import com.example.coffeepod.R
 import com.example.coffeepod.User
 import com.parse.ParseFile
 import com.parse.ParseUser
+import permissions.dispatcher.NeedsPermission
+import permissions.dispatcher.RuntimePermissions
 import java.io.File
 import java.io.IOException
 
+@RuntimePermissions
 class ProfileFragment : Fragment() {
 
     val PICK_PHOTO_CODE = 1046
@@ -50,7 +54,7 @@ class ProfileFragment : Fragment() {
         etLocation = view.findViewById(R.id.etLocation)
 
         view.findViewById<Button>(R.id.btnUploadPhoto).setOnClickListener {
-            onPickPhoto(view)
+            onPickPhotoWithPermissionCheck(view)
         }
 
         view.findViewById<Button>(R.id.btnUpdateProfile).setOnClickListener {
@@ -76,6 +80,7 @@ class ProfileFragment : Fragment() {
         etLocation.setText(user.getLocation().toString())
     }
 
+    @NeedsPermission(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
     fun onPickPhoto(view: View?) {
         val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
         startActivityForResult(intent, PICK_PHOTO_CODE)
