@@ -200,7 +200,7 @@ class ComposeFragment : Fragment() {
         review.setOrder(etOrder.text.toString())
         review.setReviewText(etReview.text.toString())
         review.setTags(selectedTags)
-        review.setRating(ratingBar.rating.toInt())
+        review.setRating(ratingBar.rating)
 
         review.saveInBackground { exception ->
             if (exception != null) {

@@ -46,11 +46,11 @@ class Review : ParseObject() {
         saveInBackground()
     }
 
-    fun getRating(): Int? {
-        return getInt(KEY_RATING)
+    fun getRating(): Number? {
+        return getNumber(KEY_RATING)
     }
 
-    fun setRating(rating: Int) {
+    fun setRating(rating: Number) {
         put(KEY_RATING, rating)
     }
 
@@ -68,10 +68,6 @@ class Review : ParseObject() {
 
     fun setImage(imgFile: ParseFile) {
         put(KEY_IMAGE, imgFile)
-    }
-
-    fun getTags() {
-        TODO("Not yet implemented")
     }
 
     companion object {
