@@ -12,9 +12,9 @@ An app to find reviews for local coffee shops and submit reviews based on your e
 
 ## Video Walkthrough
 
-Here's a walkthrough of Sprint 1 implemented user stories:
+Here's a walkthrough of all implemented user stories:
 
-<img src='CoffeePod Week2 Progress.gif' />
+<img src='CoffeePod Week3 Progress.gif' />
 
 ### App Evaluation
 - **Category:** Lifestyle
@@ -31,10 +31,10 @@ Here's a walkthrough of Sprint 1 implemented user stories:
 **Required Must-have Stories**
 
 - [x] User is able to login, signup, and logout of the app. The user login is persisted with app restarts.
-- [x] User can set up a personal profile with a home location.
-- [ ] User can see a quick summary of photo, address, rating, pricing, tags, and popular items.
-- [ ] User can see detailed information about a coffee location when they click on its summary.
-- [x] User can submit reviews with information about their visit to a location (what they ordered, rating, tags, location photo, etc).
+- [x] User can set up a personal profile with a profile photo, name, email, and zip code.
+- [x] User can see a quick summary of coffee locations with a photo, name, rating, and tags.
+- [x] User can see detailed information about a coffee location when they click on its summary (name, photo, address, tags, and reviews).
+- [x] User can submit reviews with information about their visit to a location (what they ordered, rating, tags, and photo).
 
 **Optional Nice-to-have Stories**
 
@@ -47,13 +47,13 @@ Here's a walkthrough of Sprint 1 implemented user stories:
 * Login/Register
    * User is able to login, signup, and logout of the app. The user login is persisted with app restarts.
 * Stream
-   * User can see a quick summary of photo, address, rating, pricing, tags, and popular items.
+   * User can see a quick summary of coffee locations with a photo, name, rating, and tags.
 * Detail
-   * User can see detailed information about a coffee location when they click on its summary.
+   * User can see detailed information about a coffee location when they click on its summary (name, photo, address, tags, and reviews).
 * Creation
-   * User can submit reviews with information about their visit to a location (what they ordered, rating, tags, location photo, etc).
+   * User can submit reviews with information about their visit to a location (what they ordered, rating, tags, and photo).
 * Settings
-   * User can set up a personal profile with a home location.
+   * User can set up a personal profile with a profile photo, name, email, and zip code.
 
 ### 3. Navigation
 
@@ -88,6 +88,7 @@ Here's a walkthrough of Sprint 1 implemented user stories:
    | objectId       | String          | unique id for the user (default field) |
    | username       | String          | username for the user |
    | password       | String          | password for the user |
+   | email          | String          | email address for the user |
    | name           | String          | users first and last name |
    | profilePicture | File            | profilePicture for the user (optional) |
    | location       | Number          | zip code for the user (optional) |
@@ -100,6 +101,7 @@ Here's a walkthrough of Sprint 1 implemented user stories:
    | ------------- | --------------- | ------------ |
    | objectId      | String          | unique id for the review (default field) |
    | address       | String          | location address |
+   | name          | String          | location name |
    | createdAt     | DateTime        | date when review is created (default field) |
    | updatedAt     | DateTime        | date when review is last updated (default field) |
 
@@ -109,26 +111,35 @@ Here's a walkthrough of Sprint 1 implemented user stories:
    | ------------- | ------------------- | ------------ |
    | objectId      | String              | unique id for the review (default field) |
    | user          | Pointer to User     | review author |
-   | location      | Pointer to Location | lcoation being reviewed |
+   | location      | Pointer to Location | location being reviewed |
    | image         | File                | image that user uploads with review |
    | order         | String              | what was ordered during the visit |
    | reviewText    | String              | review text posted by the user |
    | rating        | Number              | review rating out of 5 stars |
-   | tags          | Array               | tags for the location (vibe, cost, etc) |
+   | tags          | Relation to Tag     | tags for the location (vibe, cost, etc) |
    | createdAt     | DateTime            | date when review is created (default field) |
    | updatedAt     | DateTime            | date when review is last updated (default field) |
+
+#### Tags
+
+   | Property      | Type            | Description  |
+   | ------------- | --------------- | ------------ |
+   | objectId      | String          | unique id for the review (default field) |
+   | name          | String          | tag name |
+   | createdAt     | DateTime        | date when review is created (default field) |
+   | updatedAt     | DateTime        | date when review is last updated (default field) |
 
 ### Networking
    - Login/Register screen
       - (Create/POST) Register a new user
       - (Read/GET) Authenticate user login
    - Review stream screen
-      - (Read/GET) Query all locations by zip code
-      - (Read/GET) Query review data by location
+      - (Read/GET) Query all locations
    - Review detail screen
       - (Read/GET) Query all reviews by location
    - Review creation Screen
       - (Create/POST) Create a new review object
+      - (Read/GET) Query all tags and locations
    - Settings Screen
       - (Read/GET) Query logged in user object
-      - (Update/PUT) Update user profile picture and location
+      - (Update/PUT) Update user profile picture, zip code, name, and email
